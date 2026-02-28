@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace Drupal\claude_agent_sdk\Runtime;
 
 /**
- * Immutable session value object for Claude Agent runtime calls.
+ * Session value object for Claude Agent runtime calls.
+ *
+ * Tracks the session identifier, context payload, and open/closed state.
+ * Once a session is closed no further operations should be performed on it.
  */
 final class ClaudeAgentSession {
 
@@ -22,6 +25,13 @@ final class ClaudeAgentSession {
    * @var array<string, mixed>
    */
   private array $context;
+
+  /**
+   * Whether the session has been closed.
+   *
+   * @var bool
+   */
+  private bool $closed = FALSE;
 
   /**
    * Creates a new runtime session.
@@ -51,6 +61,36 @@ final class ClaudeAgentSession {
    */
   public function context(): array {
     return $this->context;
+  }
+
+  /**
+   * Returns whether the session is closed.
+   *
+   * @return bool
+   *   TRUE if the session has been closed.
+   */
+  public function isClosed(): bool {
+    return $this->closed;
+  }
+
+  /**
+   * Marks the session as closed.
+   *
+   * Once closed a session cannot be reopened. The runtime will reject any
+   * further operations on a closed session.
+   *
+   * @throws \RuntimeException
+   *   If the session is already closed.
+   */
+  public function close(): void {
+    if ($this->closed) {
+      throw new \RuntimeException(sprintf(
+        'Session "%s" is already closed.',
+        $this->id,
+      ));
+    }
+
+    $this->closed = TRUE;
   }
 
 }

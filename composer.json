@@ -2,7 +2,7 @@
   "name": "victorstack-ai/claude-agent-sdk-runtime",
   "description": "Experimental Drupal module that models Claude Agent SDK runtime behavior.",
   "type": "drupal-module",
-  "license": "GPL-2.0-or-later",
+  "license": "MIT",
   "require": {
     "php": ">=8.1"
   },

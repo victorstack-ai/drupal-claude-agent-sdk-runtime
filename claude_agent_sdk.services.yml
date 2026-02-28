@@ -1,3 +1,7 @@
 services:
+  claude_agent_sdk.tool_executor:
+    class: Drupal\claude_agent_sdk\Runtime\ToolExecutor
+
   claude_agent_sdk.runtime:
     class: Drupal\claude_agent_sdk\Runtime\ClaudeAgentRuntime
+    arguments: ['@claude_agent_sdk.tool_executor']
