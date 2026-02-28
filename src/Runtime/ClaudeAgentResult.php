@@ -7,7 +7,7 @@ namespace Drupal\claude_agent_sdk\Runtime;
 /**
  * Value object returned from the runtime.
  */
-final class ClaudeAgentResult {
+class ClaudeAgentResult {
 
   /**
    * The originating session id.

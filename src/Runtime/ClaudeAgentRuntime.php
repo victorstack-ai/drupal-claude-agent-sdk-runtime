@@ -11,7 +11,7 @@ namespace Drupal\claude_agent_sdk\Runtime;
  * It manages the full session lifecycle (create, execute, close) and
  * delegates tool invocations to a ToolExecutor instance.
  */
-final class ClaudeAgentRuntime {
+class ClaudeAgentRuntime {
 
   /**
    * The runtime identifier.

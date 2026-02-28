@@ -10,7 +10,7 @@ namespace Drupal\claude_agent_sdk\Runtime;
  * Tracks the session identifier, context payload, and open/closed state.
  * Once a session is closed no further operations should be performed on it.
  */
-final class ClaudeAgentSession {
+class ClaudeAgentSession {
 
   /**
    * The unique session identifier.

@@ -19,7 +19,7 @@ namespace Drupal\claude_agent_sdk\Runtime;
  * $result = $executor->execute('my_tool', $session, ['key' => 'value']);
  * @endcode
  */
-final class ToolExecutor {
+class ToolExecutor {
 
   /**
    * Registered tools keyed by name.
